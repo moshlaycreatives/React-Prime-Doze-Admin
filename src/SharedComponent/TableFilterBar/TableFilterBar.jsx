@@ -70,7 +70,7 @@ const TableFilterBar = ({
                 justifyContent: "space-between",
                 flexWrap: "wrap",
                 gap: 2,
-                mb: 2.5,
+                mb: 1.5,
                 ...sx,
             }}
         >

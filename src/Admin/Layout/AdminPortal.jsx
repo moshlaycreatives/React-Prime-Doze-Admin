@@ -39,7 +39,7 @@ const Root = styled(Box)(() => ({
     overflowY: "auto",
     boxSizing: "border-box",
     // Keep top spacing smooth across screen sizes instead of abrupt breakpoint jumps.
-    paddingTop: "clamp(100px, 11vh, 120px)",
+    paddingTop: "clamp(95px, 11vh, 120px)",
     paddingRight: "clamp(15px, 2.5vw, 30px)",
     paddingBottom: "clamp(15px, 2.5vw, 30px)",
     paddingLeft: "clamp(15px, 2.5vw, 25px)",

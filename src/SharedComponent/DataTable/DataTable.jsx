@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PropTypes from "prop-types";
 import {
     Box,
@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { fontFamily } from "../../theme/responsiveTypography";
+
 
 const headerCellSx = {
     fontFamily,
@@ -130,6 +131,10 @@ const DataTable = ({
 }) => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(defaultRowsPerPage);
+
+    useEffect(() => {
+        setPage(0);
+    }, [rows]);
 
     const totalRows = rows.length;
     const totalPages = Math.max(1, Math.ceil(totalRows / rowsPerPage));

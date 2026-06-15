@@ -15,37 +15,43 @@
         "id": 3,
         "label": "Patients",
         "path": "/admin/patients",
-        "icon": "MonitorHeart"
+        "icon": "MonitorHeart",
+        "activePaths": ["/admin/patient-profile"]
     },
     {
         "id": 4,
         "label": "Doctors",
         "path": "/admin/doctors",
-        "icon": "MedicalServices"
+        "icon": "MedicalServices",
+        "activePaths": ["/admin/doctors-profile", "/admin/doctor-review"]
     },
     {
         "id": 5,
         "label": "Hospitals",
         "path": "/admin/hospitals",
-        "icon": "LocalHospital"
+        "icon": "LocalHospital",
+        "activePaths": ["/admin/hospitals-profile"]
     },
     {
         "id": 6,
         "label": "Labs",
         "path": "/admin/labs",
-        "icon": "Science"
+        "icon": "Science",
+        "activePaths": ["/admin/labs-profile"]
     },
     {
         "id": 7,
         "label": "Pharmacies",
         "path": "/admin/pharmacies",
-        "icon": "Medication"
+        "icon": "Medication",
+        "activePaths": ["/admin/pharmacies-profile"]
     },
     {
         "id": 8,
         "label": "Optical Stores",
         "path": "/admin/optical-stores",
-        "icon": "RemoveRedEye"
+        "icon": "RemoveRedEye",
+        "activePaths": ["/admin/optical-stores-profile"]
     },
     {
         "id": 9,

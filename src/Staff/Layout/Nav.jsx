@@ -41,6 +41,11 @@ const Nav = ({ menuData }) => {
         boxSizing: "border-box",
         overflowX: "hidden",
         overflowY: "auto",
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
         display: "flex",
         flexDirection: "column",
       }}

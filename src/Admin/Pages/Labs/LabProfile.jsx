@@ -146,7 +146,7 @@ const TestCard = ({ test }) => (
         sx={{
             ...cardSx,
             width: 240,
-            minWidth: 240,
+            minWidth: 350,
             flexShrink: 0,
         }}
     >
@@ -504,7 +504,7 @@ const LabProfile = () => {
                                 ))}
                             </Box>
 
-                            <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2.5 }}>
+                            <Box sx={{ display: "flex", justifyContent: "flex-end", }}>
                                 <Typography
                                     component="span"
                                     sx={viewAllSx}
@@ -562,7 +562,7 @@ const LabProfile = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "space-between",
-                        mb: 1.5,
+                        mb: 1,
                     }}
                 >
                     <Typography

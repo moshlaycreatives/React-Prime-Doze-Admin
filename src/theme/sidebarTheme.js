@@ -27,6 +27,13 @@ export const getSidebarMenuItemSx = (isActive) => ({
   "&:hover": {
     backgroundColor: isActive ? sidebarColors.activeBg : "#E8EAED",
   },
+  "&.Mui-selected": {
+    backgroundColor: isActive ? sidebarColors.activeBg : sidebarColors.inactiveBg,
+    color: isActive ? sidebarColors.activeText : sidebarColors.inactiveText,
+    "&:hover": {
+      backgroundColor: isActive ? sidebarColors.activeBg : "#E8EAED",
+    },
+  },
   "& .MuiListItemIcon-root": {
     minWidth: 36,
     color: "inherit",
