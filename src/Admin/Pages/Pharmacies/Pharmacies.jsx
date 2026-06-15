@@ -145,7 +145,7 @@ const Pharmacies = () => {
     return (
         <Box>
             <Typography sx={pageTitleSx}>
-                Dashboard/
+                Dashboard /
                 <Box component="span" sx={pageSubtitleSx}>
                     {" "}
                     Pharmacies

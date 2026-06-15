@@ -140,7 +140,7 @@ const Hospitals = () => {
     return (
         <Box>
             <Typography sx={pageTitleSx}>
-                Dashboard/
+                Dashboard /
                 <Box component="span" sx={pageSubtitleSx}>
                     {" "}
                     Hospitals

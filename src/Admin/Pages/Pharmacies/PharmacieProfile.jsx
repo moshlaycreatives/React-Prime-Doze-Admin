@@ -234,10 +234,10 @@ const PharmacieProfile = () => {
             >
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
-                        Dashboard/
+                        Dashboard /
                         <Box component="span" sx={pageSubtitleSx}>
                             {" "}
-                            Pharmacies/
+                            Pharmacies /
                         </Box>
                         <Box component="span" sx={pageSubtitleSx}>
                             {" "}

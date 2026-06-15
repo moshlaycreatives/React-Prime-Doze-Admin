@@ -330,10 +330,10 @@ const LabProfile = () => {
             >
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
-                        Dashboard/
+                        Dashboard /
                         <Box component="span" sx={pageSubtitleSx}>
                             {" "}
-                            Labs/
+                            Labs /
                         </Box>
                         <Box component="span" sx={pageSubtitleSx}>
                             {" "}

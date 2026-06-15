@@ -19,7 +19,7 @@ import { useAppSelector } from "../../../redux/hooks.js";
 import AddStaff from "./AddStaff";
 import EditStaff from "./EditStaff";
 
-const TABLE_HEADERS = ["Name", "Country", "Email", "Action"];
+const TABLE_HEADERS = ["Name", "Country", "Email", "Actions"];
 
 const headerCellSx = {
     fontFamily,
@@ -95,7 +95,7 @@ const Staff = () => {
             <Grid container>
                 <Grid item size={{ xs: 12, md: 6 }}>
                     <Typography sx={pageTitleSx}>
-                        Dashboard/
+                        Dashboard / 
                         <Box component="span" sx={pageSubtitleSx}>
                             Staff
                         </Box>

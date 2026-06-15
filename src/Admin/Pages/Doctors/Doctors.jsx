@@ -187,7 +187,7 @@ const Doctors = () => {
             >
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
-                        Dashboard/
+                        Dashboard /
                         <Box component="span" sx={pageSubtitleSx}>
                             {" "}
                             Doctors

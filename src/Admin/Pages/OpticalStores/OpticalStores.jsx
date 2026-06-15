@@ -147,7 +147,7 @@ const OpticalStores = () => {
     return (
         <Box>
             <Typography sx={pageTitleSx}>
-                Dashboard/
+                Dashboard /
                 <Box component="span" sx={pageSubtitleSx}>
                     {" "}
                     Optical Stores

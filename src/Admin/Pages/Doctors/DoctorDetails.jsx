@@ -11,6 +11,10 @@ import {
     mutedIconButtonSx,
 } from "../../../theme/formTheme";
 
+
+
+
+
 const labelSx = {
     fontFamily,
     fontSize: "16px",
@@ -74,6 +78,7 @@ DetailSection.propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
 };
+
 
 const DoctorDetails = ({ open, onClose, doctor }) => {
     const detailRows = [

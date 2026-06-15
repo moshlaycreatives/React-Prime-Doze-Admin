@@ -326,10 +326,10 @@ const DoctorProfile = () => {
             />
 
             <Typography sx={pageTitleSx}>
-                Dashboard/
+                Dashboard /
                 <Box component="span" sx={pageSubtitleSx}>
                     {" "}
-                    Doctors/
+                    Doctors /
                 </Box>
                 <Box component="span" sx={pageSubtitleSx}>
                     {" "}

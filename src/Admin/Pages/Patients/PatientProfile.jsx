@@ -320,10 +320,10 @@ const PatientProfile = () => {
     return (
         <Box>
             <Typography sx={pageTitleSx}>
-                Dashboard/
+                Dashboard /
                 <Box component="span" sx={pageSubtitleSx}>
                     {" "}
-                    Patients/
+                    Patients /
                 </Box>
                 <Box component="span" sx={pageSubtitleSx}>
                     {" "}

@@ -354,10 +354,10 @@ const HospitalProfile = () => {
             >
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
-                        Dashboard/
+                        Dashboard /
                         <Box component="span" sx={pageSubtitleSx}>
                             {" "}
-                            Hospitals/
+                            Hospitals /
                         </Box>
                         <Box component="span" sx={pageSubtitleSx}>
                             {" "}
