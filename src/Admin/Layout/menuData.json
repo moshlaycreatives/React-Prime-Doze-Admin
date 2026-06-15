@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "label": "Dashboard",
+        "path": "/admin",
+        "icon": "GridView"
+    },
+    {
+        "id": 2,
+        "label": "Staff",
+        "path": "/admin/staff",
+        "icon": "Groups"
+    },
+    {
+        "id": 3,
+        "label": "Patients",
+        "path": "/admin/patients",
+        "icon": "MonitorHeart"
+    },
+    {
+        "id": 4,
+        "label": "Doctors",
+        "path": "/admin/doctors",
+        "icon": "MedicalServices"
+    },
+    {
+        "id": 5,
+        "label": "Hospitals",
+        "path": "/admin/hospitals",
+        "icon": "LocalHospital"
+    },
+    {
+        "id": 6,
+        "label": "Labs",
+        "path": "/admin/labs",
+        "icon": "Science"
+    },
+    {
+        "id": 7,
+        "label": "Pharmacies",
+        "path": "/admin/pharmacies",
+        "icon": "Medication"
+    },
+    {
+        "id": 8,
+        "label": "Optical Stores",
+        "path": "/admin/optical-stores",
+        "icon": "RemoveRedEye"
+    },
+    {
+        "id": 9,
+        "label": "Caretakers",
+        "path": "/admin/caretakers",
+        "icon": "VolunteerActivism"
+    },
+    {
+        "id": 10,
+        "label": "Earnings",
+        "path": "/admin/earnings",
+        "icon": "MonetizationOn"
+    },
+    {
+        "id": 11,
+        "label": "Prime Store",
+        "path": "/admin/prime-store",
+        "icon": "Storefront"
+    },
+    {
+        "id": 12,
+        "label": "Order History",
+        "path": "/admin/order-history",
+        "icon": "ShoppingCart"
+    },
+    {
+        "id": 13,
+        "label": "Specialties",
+        "path": "/admin/specialties",
+        "icon": "MedicalInformation"
+    },
+    {
+        "id": 14,
+        "label": "Subscriptions",
+        "path": "/admin/subscriptions",
+        "icon": "WorkspacePremium"
+    },
+    {
+        "id": 15,
+        "label": "Subscription History",
+        "path": "/admin/subscription-history",
+        "icon": "EventRepeat"
+    },
+    {
+        "id": 16,
+        "label": "Health Library",
+        "path": "/admin/health-library",
+        "icon": "MenuBook"
+    },
+    {
+        "id": 17,
+        "label": "Settings",
+        "path": "/admin/settings",
+        "icon": "Settings"
+    }
+]

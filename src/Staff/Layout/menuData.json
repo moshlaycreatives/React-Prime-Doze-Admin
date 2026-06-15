@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "label": "Dashboard",
+        "path": "/staff",
+        "icon": "GridView"
+    },
+    {
+        "id": 2,
+        "label": "Doctors",
+        "path": "/staff/doctors",
+        "icon": "MedicalServices"
+    }
+]
