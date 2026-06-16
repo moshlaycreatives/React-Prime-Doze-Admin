@@ -39,6 +39,11 @@ const pageSubtitleSx = {
     fontSize: "25px",
     fontWeight: 400,
 };
+const pageSubtitleS = {
+    color: "#2F2F2F",
+    fontSize: "25px",
+    fontWeight: 500,
+};
 
 const cardSx = {
     backgroundColor: "#FFFFFF",
@@ -327,7 +332,7 @@ const DoctorProfile = () => {
 
             <Typography sx={pageTitleSx}>
                 Dashboard /
-                <Box component="span" sx={pageSubtitleSx}>
+                <Box component="span" sx={pageSubtitleS}>
                     {" "}
                     Doctors /
                 </Box>

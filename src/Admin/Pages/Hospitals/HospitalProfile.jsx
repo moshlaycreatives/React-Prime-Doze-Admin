@@ -40,6 +40,12 @@ const pageSubtitleSx = {
     fontWeight: 400,
 };
 
+const pageSubtitleS = {
+    color: "#2F2F2F",
+    fontSize: "25px",
+    fontWeight: 500,
+};
+
 const cardSx = {
     backgroundColor: "#FFFFFF",
     borderRadius: "15px",
@@ -219,7 +225,7 @@ const DoctorCard = ({ doctor, onClick }) => (
                         fontWeight: 600,
                         color: "#2F2F2F",
                     }}
-                   
+
                 >
                     {doctor.name}
                 </Typography>
@@ -355,7 +361,7 @@ const HospitalProfile = () => {
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
                         Dashboard /
-                        <Box component="span" sx={pageSubtitleSx}>
+                        <Box component="span" sx={pageSubtitleS}>
                             {" "}
                             Hospitals /
                         </Box>
