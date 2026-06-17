@@ -231,97 +231,156 @@ const DataTable = ({
                 <Box
                     sx={{
                         display: "flex",
+                        flexDirection: { xs: "column", sm: "row" },
                         alignItems: "center",
                         justifyContent: "center",
                         flexWrap: "wrap",
-                        gap: 2,
-                        px: 2.5,
+                        gap: { xs: 1.5, sm: 2 },
+                        px: { xs: 1.5, sm: 2.5 },
                         py: 2,
                         borderTop: "1px solid #EFEFEF",
                     }}
                 >
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            gap: { xs: 0.75, sm: 1 },
+                            width: { xs: "100%", sm: "auto" },
+                        }}
+                    >
                         <Box
                             component="button"
                             onClick={() => handlePageChange(page - 1)}
                             disabled={page === 0}
-                            sx={navButtonSx}
+                            sx={{
+                                ...navButtonSx,
+                                px: { xs: 1.5, sm: 2 },
+                                fontSize: { xs: "13px", sm: "14px" },
+                            }}
                         >
                             {"< Back"}
                         </Box>
 
-                        {getPageNumbers(page + 1, totalPages).map((pageNum, index) =>
-                            pageNum === "..." ? (
-                                <Typography
-                                    key={`ellipsis-${index}`}
-                                    sx={{ ...paginationLabelSx, px: 0.5 }}
-                                >
-                                    ...
-                                </Typography>
-                            ) : (
-                                <Box
-                                    key={pageNum}
-                                    component="button"
-                                    onClick={() => handlePageChange(pageNum - 1)}
-                                    sx={pageButtonSx(page + 1 === pageNum)}
-                                >
-                                    {pageNum}
-                                </Box>
-                            )
-                        )}
+                        <Box
+                            sx={{
+                                display: { xs: "none", sm: "flex" },
+                                alignItems: "center",
+                                gap: 1,
+                            }}
+                        >
+                            {getPageNumbers(page + 1, totalPages).map((pageNum, index) =>
+                                pageNum === "..." ? (
+                                    <Typography
+                                        key={`ellipsis-${index}`}
+                                        sx={{ ...paginationLabelSx, px: 0.5 }}
+                                    >
+                                        ...
+                                    </Typography>
+                                ) : (
+                                    <Box
+                                        key={pageNum}
+                                        component="button"
+                                        onClick={() => handlePageChange(pageNum - 1)}
+                                        sx={pageButtonSx(page + 1 === pageNum)}
+                                    >
+                                        {pageNum}
+                                    </Box>
+                                )
+                            )}
+                        </Box>
+
+                        <Typography
+                            sx={{
+                                ...paginationLabelSx,
+                                display: { xs: "block", sm: "none" },
+                                minWidth: 72,
+                                textAlign: "center",
+                            }}
+                        >
+                            {page + 1} / {totalPages}
+                        </Typography>
 
                         <Box
                             component="button"
                             onClick={() => handlePageChange(page + 1)}
                             disabled={page >= totalPages - 1}
-                            sx={navButtonSx}
+                            sx={{
+                                ...navButtonSx,
+                                px: { xs: 1.5, sm: 2 },
+                                fontSize: { xs: "13px", sm: "14px" },
+                            }}
                         >
                             {"Next >"}
                         </Box>
                     </Box>
 
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                        <Typography sx={paginationLabelSx}>Result per page</Typography>
-                        <Select
-                            value={rowsPerPage}
-                            onChange={handleRowsPerPageChange}
-                            IconComponent={KeyboardArrowDownIcon}
-                            renderValue={(value) => String(value).padStart(2, "0")}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: { xs: "space-between", sm: "center" },
+                            gap: { xs: 1, sm: 2 },
+                            width: { xs: "100%", sm: "auto" },
+                            flexWrap: "wrap",
+                        }}
+                    >
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <Typography
+                                sx={{
+                                    ...paginationLabelSx,
+                                    fontSize: { xs: "13px", sm: "14px" },
+                                }}
+                            >
+                                Result per page
+                            </Typography>
+                            <Select
+                                value={rowsPerPage}
+                                onChange={handleRowsPerPageChange}
+                                IconComponent={KeyboardArrowDownIcon}
+                                renderValue={(value) => String(value).padStart(2, "0")}
+                                sx={{
+                                    fontFamily,
+                                    fontSize: "14px",
+                                    color: "#2F2F2F",
+                                    height: 36,
+                                    minWidth: 64,
+                                    borderRadius: "6px",
+                                    "& .MuiOutlinedInput-notchedOutline": {
+                                        borderColor: "#D9D9D9",
+                                    },
+                                    "& .MuiSelect-select": {
+                                        py: 0.75,
+                                        px: 1.5,
+                                    },
+                                    "& .MuiSvgIcon-root": {
+                                        color: "#7C7C7C",
+                                        fontSize: 20,
+                                    },
+                                }}
+                            >
+                                {rowsPerPageOptions.map((option) => (
+                                    <MenuItem
+                                        key={option}
+                                        value={option}
+                                        sx={{ fontFamily, fontSize: "14px" }}
+                                    >
+                                        {String(option).padStart(2, "0")}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </Box>
+
+                        <Typography
                             sx={{
-                                fontFamily,
-                                fontSize: "14px",
-                                color: "#2F2F2F",
-                                height: 36,
-                                minWidth: 64,
-                                borderRadius: "6px",
-                                "& .MuiOutlinedInput-notchedOutline": {
-                                    borderColor: "#D9D9D9",
-                                },
-                                "& .MuiSelect-select": {
-                                    py: 0.75,
-                                    px: 1.5,
-                                },
-                                "& .MuiSvgIcon-root": {
-                                    color: "#7C7C7C",
-                                    fontSize: 20,
-                                },
+                                ...paginationLabelSx,
+                                fontSize: { xs: "13px", sm: "14px" },
                             }}
                         >
-                            {rowsPerPageOptions.map((option) => (
-                                <MenuItem
-                                    key={option}
-                                    value={option}
-                                    sx={{ fontFamily, fontSize: "14px" }}
-                                >
-                                    {String(option).padStart(2, "0")}
-                                </MenuItem>
-                            ))}
-                        </Select>
+                            {startRow}-{endRow} of {totalRows}
+                        </Typography>
                     </Box>
-
-                    <Typography sx={paginationLabelSx}>
-                        {startRow}-{endRow} of {totalRows}
-                    </Typography>
                 </Box>
             )}
         </Box>

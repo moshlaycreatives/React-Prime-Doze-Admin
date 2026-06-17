@@ -111,6 +111,12 @@ const tabButtonSx = (active) => ({
     cursor: "pointer",
     whiteSpace: "nowrap",
     transition: "border-color 0.2s ease, color 0.2s ease",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSizing: "border-box",
+    flex: { xs: "1 1 calc(50% - 6px)", sm: "0 0 auto" },
+    minWidth: { xs: 0, sm: "auto" },
     "&:hover": {
         borderColor: active ? "#1472FF" : "#BDBDBD",
     },
@@ -344,7 +350,7 @@ const DoctorProfile = () => {
 
             <Grid container spacing={1} sx={{ mb: 1 }}>
                 {statCards.map((stat) => (
-                    <Grid key={stat.title} size={{ xs: 12, sm: 6, md: 4, lg: 2.4 }}>
+                    <Grid key={stat.title} size={{ xs: 6, sm: 6, md: 4, lg: 2.4 }}>
                         <StatCard {...stat} />
                     </Grid>
                 ))}
@@ -365,8 +371,8 @@ const DoctorProfile = () => {
                                 flex: { xs: "none", sm: "0 0 34%" },
                                 display: "flex",
                                 flexDirection: "column",
-                                // alignItems: "center",
-                                // textAlign: "center",
+                                alignItems: { xs: "center", sm: "flex-start" },
+                                textAlign: { xs: "center", sm: "left" },
                                 gap: 1.5,
                                 pr: { sm: 3 },
                                 pb: { xs: 2.5, sm: 0 },
@@ -385,7 +391,7 @@ const DoctorProfile = () => {
                                     borderRadius: "50%",
                                     objectFit: "cover",
                                     border: "1px solid #EFEFEF",
-                                    mt:"7px"
+                                    mt: "7px"
                                 }}
                             />
                             <Typography
@@ -394,12 +400,12 @@ const DoctorProfile = () => {
                                     fontSize: "22px",
                                     fontWeight: 600,
                                     color: "#2F2F2F",
-                                    mt:"3px"
+                                    mt: "3px"
                                 }}
                             >
                                 {info.name}
                             </Typography>
-                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" , mt:"15px" }}>
+                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", mt: "15px" }}>
                                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
                                     <Box
                                         component="img"
@@ -524,7 +530,7 @@ const DoctorProfile = () => {
                                 fontSize: "20px",
                                 fontWeight: 600,
                                 color: "#2F2F2F",
-                                
+
                             }}
                         >
                             Documents
@@ -620,6 +626,7 @@ const DoctorProfile = () => {
                         flexWrap: "wrap",
                         gap: 1.5,
                         mb: 2,
+                        width: "100%",
                     }}
                 >
                     {tabs.map((tab) => (

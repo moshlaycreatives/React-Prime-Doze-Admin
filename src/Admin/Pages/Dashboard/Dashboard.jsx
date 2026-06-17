@@ -127,7 +127,7 @@ const StatCard = ({ title, value, trend, icon: Icon, iconBg, iconColor }) => {
                     <Typography
                         sx={{
                             fontFamily,
-                            fontSize: { xs: "10px", sm: "11px", md: "14px" },
+                            fontSize: { xs: "13px", sm: "11px", md: "14px" },
                             fontWeight: 500,
                             color: "#2F2F2F",
                             lineHeight: 1.3,

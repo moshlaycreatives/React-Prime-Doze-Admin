@@ -19,7 +19,7 @@ const selectSx = {
     fontSize: "15px",
     color: "#7C7C7C",
     height: 48,
-    minWidth: 140,
+    minWidth: { xs: 0, sm: 140 },
     borderRadius: "999px",
     backgroundColor: "#FFFFFF",
     "& .MuiOutlinedInput-notchedOutline": {
@@ -66,10 +66,10 @@ const TableFilterBar = ({
         <Box
             sx={{
                 display: "flex",
-                alignItems: "center",
+                flexDirection: { xs: "column", lg: "row" },
+                alignItems: { xs: "stretch", lg: "center" },
                 justifyContent: "space-between",
-                flexWrap: "wrap",
-                gap: 2,
+                gap: { xs: 1.5, sm: 2 },
                 mb: 1.5,
                 ...sx,
             }}
@@ -79,9 +79,10 @@ const TableFilterBar = ({
                     display: "flex",
                     alignItems: "center",
                     flexWrap: "wrap",
-                    gap: 1.5,
+                    gap: { xs: 1, sm: 1.5 },
                     flex: 1,
                     minWidth: 0,
+                    width: "100%",
                 }}
             >
                 <Box
@@ -89,8 +90,9 @@ const TableFilterBar = ({
                     onSubmit={(e) => e.preventDefault()}
                     sx={{
                         ...searchBarSx,
-                        flex: "1 1 220px",
-                        maxWidth: 320,
+                        flex: { xs: "1 1 100%", md: "1 1 220px" },
+                        maxWidth: { xs: "100%", md: 320 },
+                        width: { xs: "100%", md: "auto" },
                         height: 48,
                         display: "flex",
                         alignItems: "center",
@@ -151,7 +153,8 @@ const TableFilterBar = ({
                         IconComponent={KeyboardArrowDownIcon}
                         sx={{
                             ...selectSx,
-                            minWidth: 130,
+                            flex: { xs: "1 1 calc(50% - 4px)", sm: "0 0 auto" },
+                            minWidth: { xs: 0, sm: 130 },
                         }}
                         renderValue={(selected) =>
                             countryOptions.find((option) => option.value === selected)?.label
@@ -177,7 +180,8 @@ const TableFilterBar = ({
                         IconComponent={KeyboardArrowDownIcon}
                         sx={{
                             ...selectSx,
-                            minWidth: 120,
+                            flex: { xs: "1 1 calc(50% - 4px)", sm: "0 0 auto" },
+                            minWidth: { xs: 0, sm: 120 },
                         }}
                         renderValue={(selected) =>
                             genderOptions.find((option) => option.value === selected)?.label
@@ -200,6 +204,11 @@ const TableFilterBar = ({
                         startDate={startDate}
                         endDate={endDate}
                         onChange={onDateRangeChange}
+                        sx={{
+                            flex: { xs: "1 1 100%", sm: "0 0 auto" },
+                            width: { xs: "100%", sm: "auto" },
+                            maxWidth: { xs: "100%", sm: "none" },
+                        }}
                     />
                 )}
 
@@ -215,6 +224,7 @@ const TableFilterBar = ({
                             backgroundColor: "#FFFFFF",
                             border: `1px solid ${headerColors.searchBorder}`,
                             whiteSpace: "nowrap",
+                            flex: { xs: "1 1 100%", sm: "0 0 auto" },
                         }}
                     >
                         <Typography
@@ -242,7 +252,15 @@ const TableFilterBar = ({
             </Box>
 
             {showSort && (
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Box
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1,
+                        width: { xs: "100%", lg: "auto" },
+                        flexShrink: 0,
+                    }}
+                >
                     <Typography sx={sortLabelSx}>Sort:</Typography>
                     <Select
                         value={sortBy}
@@ -250,7 +268,8 @@ const TableFilterBar = ({
                         IconComponent={KeyboardArrowDownIcon}
                         sx={{
                             ...selectSx,
-                            minWidth: 160,
+                            flex: { xs: 1, sm: "0 0 auto" },
+                            minWidth: { xs: 0, sm: 160 },
                         }}
                     >
                         {sortOptions.map((option) => (

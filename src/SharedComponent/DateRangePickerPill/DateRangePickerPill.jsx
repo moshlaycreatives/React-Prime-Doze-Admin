@@ -26,6 +26,7 @@ const pillSx = {
     fontWeight: 400,
     color: "#374151",
     minWidth: 0,
+    overflow: "hidden",
     "&:hover": {
         backgroundColor: headerColors.white,
         borderColor: headerColors.nameBlue,
@@ -77,7 +78,7 @@ const DateRangePickerPill = ({ startDate, endDate, onChange, sx }) => {
                 }}
             >
                 <CalendarTodayOutlinedIcon
-                    sx={{ fontSize: 18, color: headerColors.iconMuted }}
+                    sx={{ fontSize: 18, color: headerColors.iconMuted, flexShrink: 0 }}
                 />
                 <Typography
                     component="span"
@@ -85,6 +86,10 @@ const DateRangePickerPill = ({ startDate, endDate, onChange, sx }) => {
                         fontFamily,
                         fontSize: "15px",
                         color: "#7C7C7C",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                        minWidth: 0,
                     }}
                 >
                     {displayLabel}

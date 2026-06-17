@@ -75,6 +75,12 @@ const tabButtonSx = (active) => ({
     cursor: "pointer",
     whiteSpace: "nowrap",
     transition: "border-color 0.2s ease, color 0.2s ease",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSizing: "border-box",
+    flex: { xs: "1 1 calc(50% - 6px)", sm: "0 0 auto" },
+    minWidth: { xs: 0, sm: "auto" },
     "&:hover": {
         borderColor: active ? "#1472FF" : "#BDBDBD",
     },
@@ -361,7 +367,7 @@ const LabProfile = () => {
                 </Grid>
                 <Grid
                     size={{ xs: 12, md: "auto" }}
-                    sx={{ display: "flex", justifyContent: { xs: "flex-start", md: "flex-end" } }}
+                    sx={{ display: "flex", justifyContent: "flex-end" , mt: { xs: "15px", md: "0px" } }}
                 >
                     <DateRangePickerPill
                         startDate={startDate}
@@ -376,7 +382,7 @@ const LabProfile = () => {
 
             <Grid container spacing={1} sx={{ mb: 1 }}>
                 {statCards.map((stat) => (
-                    <Grid key={stat.title} size={{ xs: 12, sm: 6, md: 4, lg: 2.4 }}>
+                    <Grid key={stat.title} size={{ xs: 6, sm: 6, md: 4, lg: 2.4 }}>
                         <StatCard {...stat} />
                     </Grid>
                 ))}
@@ -397,8 +403,8 @@ const LabProfile = () => {
                                 flex: { xs: "none", sm: "0 0 34%" },
                                 display: "flex",
                                 flexDirection: "column",
-                                // alignItems: "center",
-                                // textAlign: "center",
+                                alignItems: { xs: "center", sm: "flex-start" },
+                                textAlign: { xs: "center", sm: "left" },
                                 gap: 1.5,
                                 pr: { sm: 3 },
                                 pb: { xs: 2.5, sm: 0 },
@@ -429,7 +435,7 @@ const LabProfile = () => {
                             >
                                 {info.name}
                             </Typography>
-                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" , }}>
+                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", }}>
                                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
                                     <Box
                                         component="img"
@@ -634,6 +640,7 @@ const LabProfile = () => {
                         flexWrap: "wrap",
                         gap: 1.5,
                         mb: 2,
+                        width: "100%",
                     }}
                 >
                     {tabs.map((tab) => (

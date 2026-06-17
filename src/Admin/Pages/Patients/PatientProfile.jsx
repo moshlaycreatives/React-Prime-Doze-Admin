@@ -65,6 +65,12 @@ const tabButtonSx = (active) => ({
     cursor: "pointer",
     whiteSpace: "nowrap",
     transition: "border-color 0.2s ease, color 0.2s ease",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxSizing: "border-box",
+    flex: { xs: "1 1 calc(50% - 6px)", sm: "0 0 auto" },
+    minWidth: { xs: 0, sm: "auto" },
     "&:hover": {
         borderColor: active ? "#1472FF" : "#BDBDBD",
     },
@@ -352,8 +358,8 @@ const PatientProfile = () => {
                                 flex: { xs: "none", sm: "0 0 34%" },
                                 display: "flex",
                                 flexDirection: "column",
-                                // alignItems: "center",
-                                // textAlign: "center",
+                                alignItems: { xs: "center", sm: "flex-start" },
+                                textAlign: { xs: "center", sm: "left" },
                                 gap: 1.5,
                                 pr: { sm: 3 },
                                 pb: { xs: 2.5, sm: 0 },
@@ -465,7 +471,7 @@ const PatientProfile = () => {
                         sx={{
                             display: "grid",
                             gridTemplateColumns: {
-                                xs: "1fr",
+                                xs: "repeat(2, minmax(0, 1fr))",
                                 sm: "repeat(3, minmax(0, 1fr))",
                             },
                             gap: 1,
@@ -487,6 +493,7 @@ const PatientProfile = () => {
                         flexWrap: "wrap",
                         gap: 1.5,
                         mb: 2,
+                        width: "100%",
                     }}
                 >
                     {tabs.map((tab) => (
