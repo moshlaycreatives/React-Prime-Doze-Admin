@@ -17,7 +17,7 @@ const sortLabelSx = {
 const selectSx = {
     fontFamily,
     fontSize: "15px",
-    color: "#2F2F2F",
+    color: "#7C7C7C",
     height: 48,
     minWidth: 140,
     borderRadius: "999px",

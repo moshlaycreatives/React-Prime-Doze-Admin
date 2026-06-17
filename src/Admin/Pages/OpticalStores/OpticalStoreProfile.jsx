@@ -10,6 +10,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { fontFamily } from "../../../theme/responsiveTypography";
 import DataTable from "../../../SharedComponent/DataTable";
 import DateRangePickerPill from "../../../SharedComponent/DateRangePickerPill";
+import ImageViewerPopup from "../../../SharedComponent/ImageViewerPopup";
 import { useAppSelector } from "../../../redux/hooks.js";
 import OpticalStoreDetails from "./OpticalStoreDetails";
 
@@ -26,6 +27,13 @@ const pageSubtitleSx = {
     fontSize: "25px",
     fontWeight: 400,
 };
+
+const pageSubtitleS = {
+    color: "#2F2F2F",
+    fontSize: "25px",
+    fontWeight: 500,
+};
+
 
 const cardSx = {
     backgroundColor: "#FFFFFF",
@@ -139,6 +147,8 @@ const OpticalStoreProfile = () => {
     );
     const [activeTab, setActiveTab] = useState("all");
     const [storeDetailsOpen, setStoreDetailsOpen] = useState(false);
+    const [imageViewerOpen, setImageViewerOpen] = useState(false);
+    const [imageViewerIndex, setImageViewerIndex] = useState(0);
     const [startDate, setStartDate] = useState(dayjs("2026-05-15"));
     const [endDate, setEndDate] = useState(dayjs("2026-06-15"));
 
@@ -228,6 +238,14 @@ const OpticalStoreProfile = () => {
                 store={info}
             />
 
+            <ImageViewerPopup
+                open={imageViewerOpen}
+                onClose={() => setImageViewerOpen(false)}
+                images={images}
+                initialIndex={imageViewerIndex}
+                altPrefix="Store"
+            />
+
             <Grid
                 container
                 sx={{ alignItems: "center", justifyContent: "space-between", mb: 2.5 }}
@@ -235,7 +253,7 @@ const OpticalStoreProfile = () => {
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
                         Dashboard /
-                        <Box component="span" sx={pageSubtitleSx}>
+                        <Box component="span" sx={pageSubtitleS}>
                             {" "}
                             Optical Stores /
                         </Box>
@@ -333,7 +351,7 @@ const OpticalStoreProfile = () => {
                                             fontFamily,
                                             fontSize: "16px",
                                             fontWeight: 400,
-                                            color: "#7C7C7C",
+                                            color: "#2F2F2F",
                                         }}
                                     >
                                         {info.country}
@@ -421,7 +439,7 @@ const OpticalStoreProfile = () => {
                     </Box>
                 </Grid>
 
-                <Grid size={{ xs: 12, lg: 5 }}>
+                <Grid size={{ xs: 12, lg: 5.5 }}>
                     <Box sx={{ ...cardSx, height: "100%" }}>
                         <Typography
                             sx={{
@@ -447,11 +465,16 @@ const OpticalStoreProfile = () => {
                                     component="img"
                                     src={src}
                                     alt={`Store ${index + 1}`}
+                                    onClick={() => {
+                                        setImageViewerIndex(index);
+                                        setImageViewerOpen(true);
+                                    }}
                                     sx={{
                                         width: "100%",
                                         aspectRatio: "4/3",
                                         borderRadius: "8px",
                                         objectFit: "cover",
+                                        cursor: "pointer",
                                     }}
                                 />
                             ))}

@@ -10,6 +10,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { fontFamily } from "../../../theme/responsiveTypography";
 import DataTable from "../../../SharedComponent/DataTable";
 import DateRangePickerPill from "../../../SharedComponent/DateRangePickerPill";
+import ImageViewerPopup from "../../../SharedComponent/ImageViewerPopup";
 import { useAppSelector } from "../../../redux/hooks.js";
 import LabDetails from "./LabDetails";
 import AllTests from "./AllTests";
@@ -27,6 +28,13 @@ const pageSubtitleSx = {
     fontSize: "25px",
     fontWeight: 400,
 };
+
+const pageSubtitleS = {
+    color: "#2F2F2F",
+    fontSize: "25px",
+    fontWeight: 500,
+};
+
 
 const cardSx = {
     backgroundColor: "#FFFFFF",
@@ -230,6 +238,8 @@ const LabProfile = () => {
     const [activeTab, setActiveTab] = useState("all");
     const [labDetailsOpen, setLabDetailsOpen] = useState(false);
     const [allTestsOpen, setAllTestsOpen] = useState(false);
+    const [imageViewerOpen, setImageViewerOpen] = useState(false);
+    const [imageViewerIndex, setImageViewerIndex] = useState(0);
     const [startDate, setStartDate] = useState(dayjs("2026-05-15"));
     const [endDate, setEndDate] = useState(dayjs("2026-06-15"));
 
@@ -324,6 +334,14 @@ const LabProfile = () => {
                 tests={allTests}
             />
 
+            <ImageViewerPopup
+                open={imageViewerOpen}
+                onClose={() => setImageViewerOpen(false)}
+                images={images}
+                initialIndex={imageViewerIndex}
+                altPrefix="Lab"
+            />
+
             <Grid
                 container
                 sx={{ alignItems: "center", justifyContent: "space-between", mb: 2.5 }}
@@ -331,7 +349,7 @@ const LabProfile = () => {
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
                         Dashboard /
-                        <Box component="span" sx={pageSubtitleSx}>
+                        <Box component="span" sx={pageSubtitleS}>
                             {" "}
                             Labs /
                         </Box>
@@ -429,7 +447,7 @@ const LabProfile = () => {
                                             fontFamily,
                                             fontSize: "16px",
                                             fontWeight: 400,
-                                            color: "#7C7C7C",
+                                            color: "#2F2F2F",
                                         }}
                                     >
                                         {info.country}
@@ -543,11 +561,16 @@ const LabProfile = () => {
                                     component="img"
                                     src={src}
                                     alt={`Lab ${index + 1}`}
+                                    onClick={() => {
+                                        setImageViewerIndex(index);
+                                        setImageViewerOpen(true);
+                                    }}
                                     sx={{
                                         width: "100%",
                                         aspectRatio: "4/3",
                                         borderRadius: "8px",
                                         objectFit: "cover",
+                                        cursor: "pointer",
                                     }}
                                 />
                             ))}

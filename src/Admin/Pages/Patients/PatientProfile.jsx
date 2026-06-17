@@ -401,7 +401,7 @@ const PatientProfile = () => {
                                         fontFamily,
                                         fontSize: "16px",
                                         fontWeight: 400,
-                                        color: "#7C7C7C",
+                                        color: "#2F2F2F",
                                     }}
                                 >
                                     {info.country}

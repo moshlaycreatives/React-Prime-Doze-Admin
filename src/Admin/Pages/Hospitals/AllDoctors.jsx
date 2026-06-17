@@ -108,7 +108,7 @@ const DoctorListItem = ({ doctor, onClick }) => (
                     fontFamily,
                     fontSize: "13px",
                     fontWeight: 400,
-                    color: "#9CA3AF",
+                    color: "#7C7C7C",
                     lineHeight: 1.4,
                 }}
             >

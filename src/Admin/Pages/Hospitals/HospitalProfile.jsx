@@ -11,6 +11,7 @@ import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import { fontFamily } from "../../../theme/responsiveTypography";
 import DataTable from "../../../SharedComponent/DataTable";
 import DateRangePickerPill from "../../../SharedComponent/DateRangePickerPill";
+import ImageViewerPopup from "../../../SharedComponent/ImageViewerPopup";
 import {
     APPOINTMENT_TABS,
     HOSPITAL_PROFILE_ALL_DOCTORS,
@@ -277,7 +278,7 @@ const DoctorCard = ({ doctor, onClick }) => (
                     fontFamily,
                     fontSize: "13px",
                     fontWeight: 400,
-                    color: "#9CA3AF",
+                    color: "#7C7C7C",
                     lineHeight: 1.4,
                 }}
             >
@@ -292,6 +293,8 @@ const HospitalProfile = () => {
     const [activeTab, setActiveTab] = useState("all");
     const [allDoctorsOpen, setAllDoctorsOpen] = useState(false);
     const [hospitalDetailsOpen, setHospitalDetailsOpen] = useState(false);
+    const [imageViewerOpen, setImageViewerOpen] = useState(false);
+    const [imageViewerIndex, setImageViewerIndex] = useState(0);
     const [startDate, setStartDate] = useState(dayjs("2026-05-15"));
     const [endDate, setEndDate] = useState(dayjs("2026-06-15"));
     const hospital = HOSPITAL_PROFILE_INFO;
@@ -352,6 +355,14 @@ const HospitalProfile = () => {
                 open={hospitalDetailsOpen}
                 onClose={() => setHospitalDetailsOpen(false)}
                 hospital={hospital}
+            />
+
+            <ImageViewerPopup
+                open={imageViewerOpen}
+                onClose={() => setImageViewerOpen(false)}
+                images={HOSPITAL_PROFILE_IMAGES}
+                initialIndex={imageViewerIndex}
+                altPrefix="Hospital"
             />
 
             <Grid
@@ -458,7 +469,7 @@ const HospitalProfile = () => {
                                         fontFamily,
                                         fontSize: "16px",
                                         fontWeight: 400,
-                                        color: "#7C7C7C",
+                                        color: "#2F2F2F",
                                     }}
                                 >
                                     {hospital.country}
@@ -558,11 +569,16 @@ const HospitalProfile = () => {
                                     component="img"
                                     src={src}
                                     alt={`Hospital ${index + 1}`}
+                                    onClick={() => {
+                                        setImageViewerIndex(index);
+                                        setImageViewerOpen(true);
+                                    }}
                                     sx={{
                                         width: "100%",
                                         aspectRatio: "4/3",
                                         borderRadius: "8px",
                                         objectFit: "cover",
+                                        cursor: "pointer",
                                     }}
                                 />
                             ))}

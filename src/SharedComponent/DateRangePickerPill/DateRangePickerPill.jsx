@@ -84,7 +84,7 @@ const DateRangePickerPill = ({ startDate, endDate, onChange, sx }) => {
                     sx={{
                         fontFamily,
                         fontSize: "15px",
-                        color: "#374151",
+                        color: "#7C7C7C",
                     }}
                 >
                     {displayLabel}

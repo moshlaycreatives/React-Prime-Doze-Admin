@@ -10,6 +10,7 @@ import StarIcon from "@mui/icons-material/Star";
 import { fontFamily } from "../../../theme/responsiveTypography";
 import DataTable from "../../../SharedComponent/DataTable";
 import DateRangePickerPill from "../../../SharedComponent/DateRangePickerPill";
+import ImageViewerPopup from "../../../SharedComponent/ImageViewerPopup";
 import { useAppSelector } from "../../../redux/hooks.js";
 import PharmacyDetails from "./PharmacyDetails";
 
@@ -26,6 +27,14 @@ const pageSubtitleSx = {
     fontSize: "25px",
     fontWeight: 400,
 };
+
+
+const pageSubtitleS = {
+    color: "#2F2F2F",
+    fontSize: "25px",
+    fontWeight: 500,
+};
+
 
 const cardSx = {
     backgroundColor: "#FFFFFF",
@@ -139,6 +148,8 @@ const PharmacieProfile = () => {
     );
     const [activeTab, setActiveTab] = useState("all");
     const [pharmacyDetailsOpen, setPharmacyDetailsOpen] = useState(false);
+    const [imageViewerOpen, setImageViewerOpen] = useState(false);
+    const [imageViewerIndex, setImageViewerIndex] = useState(0);
     const [startDate, setStartDate] = useState(dayjs("2026-05-15"));
     const [endDate, setEndDate] = useState(dayjs("2026-06-15"));
 
@@ -228,6 +239,14 @@ const PharmacieProfile = () => {
                 pharmacy={info}
             />
 
+            <ImageViewerPopup
+                open={imageViewerOpen}
+                onClose={() => setImageViewerOpen(false)}
+                images={images}
+                initialIndex={imageViewerIndex}
+                altPrefix="Store"
+            />
+
             <Grid
                 container
                 sx={{ alignItems: "center", justifyContent: "space-between", mb: 2.5 }}
@@ -235,7 +254,7 @@ const PharmacieProfile = () => {
                 <Grid size={{ xs: 12, md: "auto" }}>
                     <Typography sx={pageTitleSx}>
                         Dashboard /
-                        <Box component="span" sx={pageSubtitleSx}>
+                        <Box component="span" sx={pageSubtitleS}>
                             {" "}
                             Pharmacies /
                         </Box>
@@ -315,7 +334,7 @@ const PharmacieProfile = () => {
                             >
                                 {info.name}
                             </Typography>
-                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%" ,mt:"15px" }}>
+                            <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", mt: "15px" }}>
                                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.75 }}>
                                     <Box
                                         component="img"
@@ -333,7 +352,7 @@ const PharmacieProfile = () => {
                                             fontFamily,
                                             fontSize: "16px",
                                             fontWeight: 400,
-                                            color: "#7C7C7C",
+                                            color: "#2F2F2F",
                                         }}
                                     >
                                         {info.country}
@@ -447,11 +466,16 @@ const PharmacieProfile = () => {
                                     component="img"
                                     src={src}
                                     alt={`Store ${index + 1}`}
+                                    onClick={() => {
+                                        setImageViewerIndex(index);
+                                        setImageViewerOpen(true);
+                                    }}
                                     sx={{
                                         width: "100%",
                                         aspectRatio: "4/3",
                                         borderRadius: "8px",
                                         objectFit: "cover",
+                                        cursor: "pointer",
                                     }}
                                 />
                             ))}

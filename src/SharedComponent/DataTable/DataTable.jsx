@@ -82,7 +82,7 @@ const paginationLabelSx = {
     fontFamily,
     fontSize: "14px",
     fontWeight: 400,
-    color: "#7C7C7C",
+    color: "#2F2F2F",
     whiteSpace: "nowrap",
 };
 
