@@ -194,7 +194,7 @@ const Doctors = () => {
                         </Box>
                     </Typography>
                 </Grid>
-                <Grid
+                {/* <Grid
                     size={{ xs: 12, md: "auto" }}
                     sx={{ display: "flex", justifyContent: { xs: "flex-start", md: "flex-end" } }}
                 >
@@ -205,7 +205,7 @@ const Doctors = () => {
                     >
                         Pending Documents
                     </Button>
-                </Grid>
+                </Grid> */}
             </Grid>
 
             <TableFilterBar

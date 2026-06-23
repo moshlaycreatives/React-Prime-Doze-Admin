@@ -16,48 +16,70 @@
         "label": "Patients",
         "path": "/admin/patients",
         "icon": "MonitorHeart",
-        "activePaths": ["/admin/patient-profile"]
+        "activePaths": [
+            "/admin/patient-profile"
+        ]
     },
     {
         "id": 4,
         "label": "Doctors",
         "path": "/admin/doctors",
         "icon": "MedicalServices",
-        "activePaths": ["/admin/doctors-profile", "/admin/doctor-review"]
+        "activePaths": [
+            "/admin/doctors-profile",
+            "/admin/doctor-review"
+        ]
     },
     {
         "id": 5,
         "label": "Hospitals",
         "path": "/admin/hospitals",
         "icon": "LocalHospital",
-        "activePaths": ["/admin/hospitals-profile"]
+        "activePaths": [
+            "/admin/hospitals-profile"
+        ]
     },
     {
         "id": 6,
         "label": "Labs",
         "path": "/admin/labs",
         "icon": "Science",
-        "activePaths": ["/admin/labs-profile"]
+        "activePaths": [
+            "/admin/labs-profile"
+        ]
     },
     {
         "id": 7,
         "label": "Pharmacies",
         "path": "/admin/pharmacies",
         "icon": "Medication",
-        "activePaths": ["/admin/pharmacies-profile"]
+        "activePaths": [
+            "/admin/pharmacies-profile"
+        ]
     },
     {
         "id": 8,
         "label": "Optical Stores",
         "path": "/admin/optical-stores",
         "icon": "RemoveRedEye",
-        "activePaths": ["/admin/optical-stores-profile"]
+        "activePaths": [
+            "/admin/optical-stores-profile"
+        ]
     },
     {
         "id": 9,
         "label": "Caretakers",
         "path": "/admin/caretakers",
         "icon": "VolunteerActivism"
+    },
+    {
+        "id": 9,
+        "label": "Documents",
+        "path": "/admin/pending-documents",
+        "icon": "VolunteerActivism",
+        "activePaths": [
+            "/admin/doctor-documents"
+        ]
     },
     {
         "id": 10,

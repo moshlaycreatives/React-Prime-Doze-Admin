@@ -27,7 +27,8 @@ import LabProfile from "../Pages/Labs/LabProfile";
 import DoctorProfile from "../Pages/Doctors/DoctorProfile";
 import PatientProfile from "../Pages/Patients/PatientProfile";
 import DoctorReview from "../Pages/Doctors/DoctorReview";
-
+import PendingDocuments from "../Pages/PendingDocuments/PendingDocuments";
+import DocumentProfile from "../Pages/PendingDocuments/DocumentProfile";
 
 
 
@@ -76,6 +77,8 @@ const AdminPortal = () => {
                     <Route path="doctors-profile" element={<DoctorProfile />} />
                     <Route path="patient-profile" element={<PatientProfile />} />
                     <Route path="doctor-review" element={<DoctorReview />} />
+                    <Route path="pending-documents" element={<PendingDocuments />} />
+                    <Route path="doctor-documents" element={<DocumentProfile />} />
                 </Routes>
             </Root>
         </Box>
