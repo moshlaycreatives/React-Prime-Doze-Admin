@@ -5,10 +5,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { clearAuthStorage } from "../../utils/authStorage.js";
 import SidebarMenuList from "../../components/SidebarMenuList.jsx";
 import DashboardHeader from "../../components/DashboardHeader.jsx";
@@ -21,6 +21,7 @@ const Nav = ({ menuData }) => {
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
   const [isOpen, setIsOpen] = useState(isLargeScreen);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSignOut = () => {
     clearAuthStorage();
@@ -28,8 +29,18 @@ const Nav = ({ menuData }) => {
   };
 
   const toggleDrawer = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
+
+  const closeDrawer = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (!isLargeScreen) {
+      setIsOpen(false);
+    }
+  }, [location.pathname, isLargeScreen]);
 
   const drawer = (
     <Box
@@ -68,7 +79,11 @@ const Nav = ({ menuData }) => {
         />
       </Box>
 
-      <SidebarMenuList menuData={menuData} onSignOut={handleSignOut} />
+      <SidebarMenuList
+        menuData={menuData}
+        onSignOut={handleSignOut}
+        onMenuItemClick={closeDrawer}
+      />
     </Box>
   );
 
@@ -108,7 +123,7 @@ const Nav = ({ menuData }) => {
           }}
           variant="temporary"
           open={isOpen}
-          onClose={toggleDrawer}
+          onClose={closeDrawer}
         >
           {drawer}
         </Drawer>

@@ -49,7 +49,7 @@ const isMenuItemActive = (item, currentPath, isSignOut, isDashboardHome) => {
   );
 };
 
-const SidebarMenuList = ({ menuData, onSignOut }) => {
+const SidebarMenuList = ({ menuData, onSignOut, onMenuItemClick }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const currentPath = normalizePath(location.pathname);
@@ -100,11 +100,14 @@ const SidebarMenuList = ({ menuData, onSignOut }) => {
             component={isSignOut ? "button" : "div"}
             role={isSignOut ? undefined : "link"}
             selected={isActive}
-            onClick={
-              isSignOut
-                ? onSignOut
-                : () => navigate(item.path)
-            }
+            onClick={() => {
+              onMenuItemClick?.();
+              if (isSignOut) {
+                onSignOut?.();
+              } else {
+                navigate(item.path);
+              }
+            }}
             sx={getSidebarMenuItemSx(isActive)}
           >
             <ListItemIcon>{renderIcon(item.icon, isActive)}</ListItemIcon>
@@ -126,6 +129,7 @@ const SidebarMenuList = ({ menuData, onSignOut }) => {
 SidebarMenuList.propTypes = {
   menuData: PropTypes.array.isRequired,
   onSignOut: PropTypes.func,
+  onMenuItemClick: PropTypes.func,
 };
 
 export default SidebarMenuList;

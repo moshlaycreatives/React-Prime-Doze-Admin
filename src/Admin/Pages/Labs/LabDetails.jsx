@@ -107,7 +107,7 @@ const LabDetails = ({ open, onClose, lab }) => {
                         borderRadius: "15px",
                         width: "calc(100% - 32px)",
                         maxWidth: "520px",
-                        maxHeight: "calc(100vh - 32px)",
+                        maxHeight: "calc(80vh - 32px)",
                         m: 2,
                         overflow: "hidden",
                         display: "flex",

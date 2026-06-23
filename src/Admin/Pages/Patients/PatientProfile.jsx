@@ -54,20 +54,24 @@ const ORDER_STATUS_COLORS = {
 
 const tabButtonSx = (active) => ({
     fontFamily,
-    fontSize: "15px",
+    fontSize: { xs: "13px", sm: "15px" },
     fontWeight: 400,
     color: "#7C7C7C",
     border: active ? "1px solid #1472FF" : "1px solid #D9D9D9",
     borderRadius: "999px",
-    px: 2.5,
-    py: 0.75,
+    px: { xs: 1.5, sm: 2.5 },
+    py: { xs: 1, sm: 0.75 },
     backgroundColor: "#FFFFFF",
     cursor: "pointer",
-    whiteSpace: "nowrap",
+    whiteSpace: { xs: "normal", sm: "nowrap" },
     transition: "border-color 0.2s ease, color 0.2s ease",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexWrap: { xs: "wrap", sm: "nowrap" },
+    textAlign: "center",
+    lineHeight: 1.3,
+    gap: { xs: 0.25, sm: 0 },
     boxSizing: "border-box",
     flex: { xs: "1 1 calc(50% - 6px)", sm: "0 0 auto" },
     minWidth: { xs: 0, sm: "auto" },
@@ -503,17 +507,21 @@ const PatientProfile = () => {
                             onClick={() => setActiveTab(tab.value)}
                             sx={tabButtonSx(activeTab === tab.value)}
                         >
-                            {tab.label}{" "}
-                            <span
-                                style={{
-                                    fontSize: "18px",
+                            <Box component="span" sx={{ wordBreak: "break-word" }}>
+                                {tab.label}
+                            </Box>
+                            <Box
+                                component="span"
+                                sx={{
+                                    fontSize: { xs: "16px", sm: "18px" },
                                     fontWeight: 600,
                                     color: "#2F2F2F",
-                                    marginLeft: "10px",
+                                    ml: { xs: 0.5, sm: 1.25 },
+                                    flexShrink: 0,
                                 }}
                             >
                                 {String(tab.count).padStart(2, "0")}
-                            </span>
+                            </Box>
                         </Box>
                     ))}
                 </Box>

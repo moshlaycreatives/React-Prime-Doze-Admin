@@ -16,6 +16,8 @@ const cardSx = {
     border: "1px solid #EFEFEF",
     backgroundColor: "#FFFFFF",
     p: 2,
+    minWidth: 0,
+    maxWidth: "100%",
 };
 
 const detailTextSx = {
@@ -43,46 +45,58 @@ const TestListItem = ({ test }) => (
         <Box
             sx={{
                 display: "flex",
-                alignItems: "center",
+                flexDirection: { xs: "column", sm: "row" },
+                alignItems: { xs: "stretch", sm: "center" },
                 gap: 0.75,
-                flexWrap: "nowrap",
                 minWidth: 0,
                 overflow: "hidden",
             }}
         >
-            <Typography
+            <Box
                 sx={{
-                    ...detailTextSx,
-                    fontWeight: 600,
-                    color: "#2F2F2F",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.75,
+                    flexWrap: "nowrap",
+                    minWidth: 0,
+                    overflow: "hidden",
+                    flex: { sm: "1 1 auto" },
                 }}
             >
-                Fee: {test.fee}
-            </Typography>
-
-            {test.discountedFee && (
                 <Typography
                     sx={{
                         ...detailTextSx,
-                        fontWeight: 400,
-                        color: "#9CA3AF",
+                        fontWeight: 600,
+                        color: "#2F2F2F",
                     }}
                 >
-                    Fee: {test.discountedFee}
+                    Fee: {test.fee}
                 </Typography>
-            )}
 
-            {test.discount && (
-                <Typography
-                    sx={{
-                        ...detailTextSx,
-                        fontWeight: 500,
-                        color: "#EF4444",
-                    }}
-                >
-                    {test.discount}
-                </Typography>
-            )}
+                {test.discountedFee && (
+                    <Typography
+                        sx={{
+                            ...detailTextSx,
+                            fontWeight: 400,
+                            color: "#9CA3AF",
+                        }}
+                    >
+                        Fee: {test.discountedFee}
+                    </Typography>
+                )}
+
+                {test.discount && (
+                    <Typography
+                        sx={{
+                            ...detailTextSx,
+                            fontWeight: 500,
+                            color: "#EF4444",
+                        }}
+                    >
+                        {test.discount}
+                    </Typography>
+                )}
+            </Box>
 
             {test.freeHomeSample && (
                 <Typography
@@ -90,7 +104,8 @@ const TestListItem = ({ test }) => (
                         ...detailTextSx,
                         fontWeight: 500,
                         color: "#22C55E",
-                        ml: "auto",
+                        alignSelf: { xs: "flex-end", sm: "auto" },
+                        ml: { sm: "auto" },
                     }}
                 >
                     Free Home Sample
@@ -122,12 +137,13 @@ const AllTests = ({ open, onClose, tests }) => (
                     borderRadius: "15px",
                     width: "calc(100% - 32px)",
                     maxWidth: "720px",
-                    maxHeight: "calc(100vh - 32px)",
+                    maxHeight: "calc(80vh - 32px)",
                     m: 2,
                     overflow: "hidden",
                     display: "flex",
                     flexDirection: "column",
                     boxShadow: "none",
+                    minWidth: 0,
                 },
             },
         }}
@@ -167,6 +183,8 @@ const AllTests = ({ open, onClose, tests }) => (
                 gap: 1.5,
                 pt: "24px",
                 overflowY: "auto",
+                overflowX: "hidden",
+                minWidth: 0,
             }}
         >
             {tests.map((test) => (
